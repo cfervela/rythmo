@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Rythmo</title>
-    <link rel="icon" type="image/png" href="../IMAGES/TiredCat_No-bg.png"/>
+    <link rel="icon" type="image/png" href="/IMAGES/logo_darkmode.png"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="https://kit.fontawesome.com/d90850e71e.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../CSS/loginStyles.css">
+    <link rel="stylesheet" href="/CSS/loginStyles.css">
 </head>
 
 <body>
-    <a href="../index.html" class="back-home">
+    <a href="/PAGES/index.html" class="back-home">
         <i class="fa-solid fa-arrow-left"></i> Volver a inicio
     </a>
 
@@ -55,7 +55,6 @@
                     <i class="fa-solid fa-lock"></i>
                     <input id="password" type="password" placeholder="Contraseña" required>
                 </div>
-
                 
                 <div class="input-group">
                     <div id="captchaContainer"></div>
@@ -103,23 +102,26 @@
                     <input type="password" placeholder="Contraseña" required>
                 </div>
                 <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input id="registerPasswordConfirm" type="password" placeholder="Confirmar Contraseña" required>
+                </div>
+                <div class="input-group">
                     <i class="fa-solid fa-globe"></i>
                     <select id="country" required>
                         <option value="" disabled selected>Selecciona tu país</option>
-                        <option value="MXN">México (MXN)</option>
-                        <option value="USD">Estados Unidos (USD)</option>
-                        <option value="EUR">España (EUR)</option>
-                        <option value="COP">Colombia (COP)</option>
-                        <option value="ARS">Argentina (ARS)</option>
-                        <option value="CLP">Chile (CLP)</option>
-                        <option value="PEN">Perú (PEN)</option>
-                        <option value="GTQ">Guatemala (GTQ)</option>
-                        <option value="BRL">Brasil (BRL)</option>
+                        <option value="MX">México (MXN)</option>
+                        <option value="US">Estados Unidos (USD)</option>
+                        <option value="ES">España (EUR)</option>
+                        <option value="CO">Colombia (COP)</option>
+                        <option value="AR">Argentina (ARS)</option>
+                        <option value="CL">Chile (CLP)</option>
+                        <option value="PE">Perú (PEN)</option>
+                        <option value="GT">Guatemala (GTQ)</option>
+                        <option value="BR">Brasil (BRL)</option>
+                        <option value="CA">Canadá (CAD)</option>
                     </select>
                 </div>
-
-
-
+                
                 <button class="btn-login">REGISTRARME</button>
             </form>
 
@@ -127,9 +129,6 @@
                 ¿Ya tienes una cuenta? <a href="#" class="go-login">Inicia sesión aquí</a>
             </p>
         </div>
-
-
-
 
     </div>
 
@@ -207,8 +206,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 </script>
-<script src="../JS/register_script.js"></script>
-<script src="../JS/login_script.js"></script>
+<script src="/JS/acces_script.js"></script>
+<script src="/JS/register_script.js"></script>
+<script src="/JS/login_script.js"></script>
 
 
 </body>

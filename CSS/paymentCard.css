@@ -28,6 +28,112 @@
     --transition: all 0.3s ease;
 }
 
+/* ======== MODO OSCURO ESTILO NEÓN ======== */
+.dark-mode {
+    /* Fondo general estilo club oscuro */
+    --bg-light: #0b0e1a;
+    --bg-light-alt: #11162a;
+
+    /* Texto brillante */
+    --text-dark: #f2f2f7;
+    --text-muted: #9aa4c4;
+
+    /* Tarjetas oscuras con luz tenue */
+    --card-bg: #14182b;
+
+    /* Neon primario (rosa-fucsia) */
+    --primary: #ff2cdf;
+    --primary-dark: #b6009c;
+    --primary-light: #ff6bf4;
+
+    /* Neon secundario (azul eléctrico) */
+    --accent: #1dc8ff;
+    --accent-dark: #1497c2;
+    --accent-soft: #0b223a;
+
+    /* Otros tonos vibrantes */
+    --vibrant-1: #ff00e6; 
+    --vibrant-2: #1bc2ff; 
+    --vibrant-3: #05ffa1; 
+
+    /* Luz de sombra estilo neón */
+    --shadow: 0 0 12px rgba(255, 0, 255, 0.3),
+              0 0 20px rgba(0, 200, 255, 0.25);
+
+    --shadow-hover: 0 0 18px rgba(255, 0, 255, 0.5),
+                    0 0 28px rgba(0, 200, 255, 0.4);
+
+    --shadow-large: 0 0 35px rgba(255, 0, 255, 0.4),
+                    0 0 60px rgba(0, 200, 255, 0.4);
+
+    /* Iconos blancos con brillo */
+    --black: #f5f8ff;
+    --white: #06070d;
+}
+
+/* EFECTO DE BRILLO PARA HOVERS EN MODO OSCURO */
+.dark-mode .btn,
+.dark-mode .login-btn,
+.dark-mode .add-to-cart,
+.dark-mode .add-to-wishlist,
+.dark-mode .product-card,
+.dark-mode .navbar a {
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.4),
+                0 0 12px rgba(0, 200, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.dark-mode .btn:hover,
+.dark-mode .login-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.7),
+                0 0 20px rgba(0, 200, 255, 0.6);
+}
+
+/* Iconos neón */
+.dark-mode i {
+    text-shadow: 0 0 8px rgba(29, 200, 255, 0.8),
+                 0 0 15px rgba(255, 44, 223, 0.6);
+}
+
+/* Borde neón para tarjetas */
+.dark-mode .product-card {
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+/* SWEETALERT – MODO OSCURO */
+.dark-mode .swal2-popup {
+    background: var(--card-bg) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    box-shadow:
+        0 0 12px rgba(255,0,255,0.4),
+        0 0 25px rgba(29,200,255,0.3);
+}
+
+.dark-mode .swal2-title {
+    color: var(--vibrant-2) !important;
+    text-shadow: 0 0 10px var(--vibrant-1);
+}
+
+.dark-mode .swal2-html-container {
+    color: var(--text-muted) !important;
+}
+
+.dark-mode .swal2-confirm {
+    background: var(--primary) !important;
+    color: var(--black) !important;
+    box-shadow:
+        0 0 8px rgba(255,0,255,0.5),
+        0 0 14px rgba(0,200,255,0.4);
+}
+
+.dark-mode .swal2-cancel {
+    background: var(--accent) !important;
+    color: var(--black) !important;
+}
+
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -107,6 +213,10 @@ body {
     drop-shadow(0 2px 4px rgba(139, 94, 60, 0.588));
   transition: var(--transition);
 }
+.dark-mode .logo-area img {
+    content: url("/IMAGES/logo_darkmode.png");
+    filter: drop-shadow(0 0 6px rgba(255, 0, 255, 0.6));
+}
 
 .logo-link:hover img {
   transform: scale(1.05) rotate(2deg);
@@ -121,6 +231,144 @@ body {
   text-shadow: 1px 1px 2px rgba(139, 94, 60, 0.651);
 }
 
+/* ======== ACCESIBILIDAD ======== */
+/* ============================
+   PANEL DE ACCESIBILIDAD (RETRO + NEÓN)
+============================ */
+
+/* Panel en modo claro (tema café retro) */
+#accessibility-panel {
+    position: absolute;
+    top: 55px;
+    right: 0;
+    background: var(--white);
+    padding: 1rem;
+    width: 12rem;
+    border: 1px solid var(--accent-soft);
+    border-radius: 0.6rem;
+    z-index: 9999;
+    box-shadow: 0 0.3rem 1rem rgba(0,0,0,0.15);
+    transition: var(--transition);
+}
+
+#accessibility-panel p strong {
+    color: var(--primary);
+    font-size: 1.05rem;
+}
+
+/* Botones retro */
+#accessibility-panel button {
+    background: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.4rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin: 3px 0;
+    width: 45%;
+    transition: var(--transition);
+    box-shadow: 0 3px 10px rgba(139,94,60,0.25);
+}
+
+#accessibility-panel button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* Botón restablecer */
+#reset-accessibility {
+    width: 100% !important;
+    margin-top: 0.6rem;
+    background: var(--accent);
+    box-shadow: 0 3px 10px rgba(194,84,84,0.25);
+}
+
+#reset-accessibility:hover {
+    background: var(--accent-dark);
+}
+
+/* Iconos dentro de botones */
+#accessibility-panel i {
+    font-size: 1rem;
+}
+
+#accessibility-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#accessibility-icon:hover {
+    background-color: var(--primary-light);
+    color: var(--white);
+    transform: scale(1.1);
+}
+
+
+
+/* ============================
+   MODO OSCURO – ESTILO NEÓN
+============================ */
+
+.dark-mode #accessibility-panel {
+    background: var(--card-bg);
+    border: 1px solid rgba(255,0,255,0.25);
+    box-shadow:
+        0 0 12px rgba(255,0,255,0.4),
+        0 0 20px rgba(0,200,255,0.3);
+}
+
+/* Título neón */
+.dark-mode #accessibility-panel p strong {
+    color: var(--vibrant-2);
+    text-shadow: 0 0 8px var(--vibrant-1);
+}
+
+/* Botones neón */
+.dark-mode #accessibility-panel button {
+    background: var(--primary);
+    box-shadow:
+        0 0 10px rgba(255,0,255,0.5),
+        0 0 15px rgba(0,200,255,0.3);
+    color: var(--black);
+}
+
+.dark-mode #accessibility-panel button:hover {
+    background: var(--primary-light);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow:
+        0 0 14px rgba(255,0,255,0.8),
+        0 0 22px rgba(0,200,255,0.6);
+}
+
+/* Botón restablecer en neón */
+.dark-mode #reset-accessibility {
+    background: var(--accent);
+    box-shadow:
+        0 0 10px rgba(29,200,255,0.5),
+        0 0 20px rgba(255,44,223,0.4);
+}
+
+.dark-mode #reset-accessibility:hover {
+    background: var(--accent-dark);
+}
+
+/* Iconos iluminados */
+.dark-mode #accessibility-panel i {
+    color: var(--vibrant-3);
+    text-shadow:
+        0 0 10px rgba(29,200,255,0.7),
+        0 0 20px rgba(255,44,223,0.5);
+}
+
+.hidden {
+    display: none;
+}  
 
 /* =================== MAIN CONTENT =================== */
 .payment-main {
@@ -241,7 +489,8 @@ body {
 }
 
 /* Brillo blanco que se desliza de izquierda a derecha */
-.pay-btn::before {
+.pay-btn::before,
+.btn-secondary::before {
   content: '';
   position: absolute;
   top: 0;
@@ -252,14 +501,44 @@ body {
   transition: 0.5s;
 }
 
-.pay-btn:hover {
+.pay-btn:hover,
+.btn-secondary:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
 
-.pay-btn:hover::before {
+.pay-btn:hover::before,
+.btn-secondary:hover::before {
   left: 100%;
 }
+
+.btn-secondary {
+    text-decoration: none;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-family: 'Poppins', sans-serif;
+    margin-top: 10px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
 
 /* =================== TARJETA + RESUMEN =================== */
 .card-preview {
@@ -484,3 +763,70 @@ body {
   box-shadow: var(--shadow), 0 0 30px rgba(139, 94, 60, 0.2);
 }
 
+/* =================== VALIDACIÓN DE CAMPOS =================== */
+.input-group input.valid {
+  border-color: #4CAF50 !important;
+  background-color: rgba(76, 175, 80, 0.05);
+  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+.input-group input.invalid {
+  border-color: #f44336 !important;
+  background-color: rgba(244, 67, 54, 0.05);
+  box-shadow: 0 0 8px rgba(244, 67, 54, 0.3);
+}
+
+.expiry-group input.valid {
+  border-color: #4CAF50 !important;
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+.expiry-group input.invalid {
+  border-color: #f44336 !important;
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+/* Iconos de validación */
+.input-group.has-validation {
+  position: relative;
+}
+
+.input-group .validation-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.input-group.has-label .validation-icon {
+  top: calc(50% + 10px);
+}
+
+.input-group input.valid ~ .validation-icon.valid-icon,
+.input-group input.invalid ~ .validation-icon.invalid-icon {
+  opacity: 1;
+}
+
+.validation-icon.valid-icon {
+  color: #4CAF50;
+}
+
+.validation-icon.invalid-icon {
+  color: #f44336;
+}
+
+/* Mensaje de error */
+.input-group .error-message {
+  font-size: 0.75rem;
+  color: #f44336;
+  margin-top: 4px;
+  display: none;
+}
+
+.input-group input.invalid ~ .error-message {
+  display: block;
+}

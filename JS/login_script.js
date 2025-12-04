@@ -70,21 +70,79 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
     if (data.name) {
       localStorage.setItem("userName", data.name);
     }
+    if (data.role) {
+      localStorage.setItem("role", data.role);
+    }
   } else {
     sessionStorage.setItem("token", data.token);
     sessionStorage.setItem("currentUser", email);
     if (data.name) {
       sessionStorage.setItem("userName", data.name);
     }
+    if (data.role) {
+      sessionStorage.setItem("role", data.role);
+    }
   }
 
-  Swal.fire({
-    icon: "success",
-    title: "Login exitoso",
-    text: "Sesión iniciada como: " + (data.name || email),
-  }).then(() => {
-    window.location.href = "/PAGES/home.html";
-  });
+  if (data.role === "admin") {
+    Swal.fire({
+      icon: "success",
+      title: "Login exitoso",
+      text: "Bienvenido administrador: " + (data.name || email),
+    }).then(() => {
+      window.location.href = "/PAGES/adminDashboard.html";
+    });
+  } else {
+    // Verificar si hay un producto pendiente
+    const pendingProduct = localStorage.getItem("pendingProduct");
+
+    if (pendingProduct) {
+      const product = JSON.parse(pendingProduct);
+      const actionText =
+        product.action === "cart"
+          ? "agregado al carrito"
+          : "agregado a tu lista de deseos";
+
+      Swal.fire({
+        icon: "success",
+        title: "¡Login exitoso!",
+        html: `Sesión iniciada como: <b>${data.name || email}</b><br><br>
+               <i class="fa-solid ${
+                 product.action === "cart" ? "fa-cart-plus" : "fa-heart"
+               }" style="color: #8B5E3C;"></i> 
+               <b>${product.name}</b> fue ${actionText}`,
+        confirmButtonText:
+          product.action === "cart" ? "Ir al carrito" : "Ir a favoritos",
+        showCancelButton: true,
+        cancelButtonText: "Seguir comprando",
+        confirmButtonColor: "#8B5E3C",
+        cancelButtonColor: "#6c757d",
+        background: "#F8F3EB",
+        color: "#2B1E14",
+      }).then((result) => {
+        // Limpiar producto pendiente
+        localStorage.removeItem("pendingProduct");
+
+        if (result.isConfirmed) {
+          if (product.action === "cart") {
+            window.location.href = "/PAGES/cart.html";
+          } else {
+            window.location.href = "/PAGES/wishlist.html";
+          }
+        } else {
+          window.location.href = "/PAGES/catalogo.html";
+        }
+      });
+    } else {
+      Swal.fire({
+        icon: "success",
+        title: "Login exitoso",
+        text: "Sesión iniciada como: " + (data.name || email),
+      }).then(() => {
+        window.location.href = "/PAGES/index.html";
+      });
+    }
+  }
 });
 
 // ===============================
@@ -116,6 +174,7 @@ applyPreferences();
 icon.addEventListener("click", () => {
   panel.classList.toggle("hidden");
 });
+
 increaseBtn.addEventListener("click", () => {
   fontSize += 0.1;
   document.body.style.fontSize = fontSize + "rem";

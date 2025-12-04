@@ -28,6 +28,112 @@
     --transition: all 0.3s ease;
 }
 
+/* ======== MODO OSCURO ESTILO NEÓN ======== */
+.dark-mode {
+    /* Fondo general estilo club oscuro */
+    --bg-light: #0b0e1a;
+    --bg-light-alt: #11162a;
+
+    /* Texto brillante */
+    --text-dark: #f2f2f7;
+    --text-muted: #9aa4c4;
+
+    /* Tarjetas oscuras con luz tenue */
+    --card-bg: #14182b;
+
+    /* Neon primario (rosa-fucsia) */
+    --primary: #ff2cdf;
+    --primary-dark: #b6009c;
+    --primary-light: #ff6bf4;
+
+    /* Neon secundario (azul eléctrico) */
+    --accent: #1dc8ff;
+    --accent-dark: #1497c2;
+    --accent-soft: #0b223a;
+
+    /* Otros tonos vibrantes */
+    --vibrant-1: #ff00e6; 
+    --vibrant-2: #1bc2ff; 
+    --vibrant-3: #05ffa1; 
+
+    /* Luz de sombra estilo neón */
+    --shadow: 0 0 12px rgba(255, 0, 255, 0.3),
+              0 0 20px rgba(0, 200, 255, 0.25);
+
+    --shadow-hover: 0 0 18px rgba(255, 0, 255, 0.5),
+                    0 0 28px rgba(0, 200, 255, 0.4);
+
+    --shadow-large: 0 0 35px rgba(255, 0, 255, 0.4),
+                    0 0 60px rgba(0, 200, 255, 0.4);
+
+    /* Iconos blancos con brillo */
+    --black: #f5f8ff;
+    --white: #06070d;
+}
+
+/* EFECTO DE BRILLO PARA HOVERS EN MODO OSCURO */
+.dark-mode .btn,
+.dark-mode .login-btn,
+.dark-mode .add-to-cart,
+.dark-mode .add-to-wishlist,
+.dark-mode .product-card,
+.dark-mode .navbar a {
+    box-shadow: 0 0 8px rgba(255, 0, 255, 0.4),
+                0 0 12px rgba(0, 200, 255, 0.3);
+    transition: 0.3s ease;
+}
+
+.dark-mode .btn:hover,
+.dark-mode .login-btn:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 0 12px rgba(255, 0, 255, 0.7),
+                0 0 20px rgba(0, 200, 255, 0.6);
+}
+
+/* Iconos neón */
+.dark-mode i {
+    text-shadow: 0 0 8px rgba(29, 200, 255, 0.8),
+                 0 0 15px rgba(255, 44, 223, 0.6);
+}
+
+/* Borde neón para tarjetas */
+.dark-mode .product-card {
+    border: 1px solid rgba(255, 0, 255, 0.2);
+}
+
+/* SWEETALERT – MODO OSCURO */
+.dark-mode .swal2-popup {
+    background: var(--card-bg) !important;
+    color: var(--text-dark) !important;
+    border: 1px solid rgba(255, 0, 255, 0.3);
+    box-shadow:
+        0 0 12px rgba(255,0,255,0.4),
+        0 0 25px rgba(29,200,255,0.3);
+}
+
+.dark-mode .swal2-title {
+    color: var(--vibrant-2) !important;
+    text-shadow: 0 0 10px var(--vibrant-1);
+}
+
+.dark-mode .swal2-html-container {
+    color: var(--text-muted) !important;
+}
+
+.dark-mode .swal2-confirm {
+    background: var(--primary) !important;
+    color: var(--black) !important;
+    box-shadow:
+        0 0 8px rgba(255,0,255,0.5),
+        0 0 14px rgba(0,200,255,0.4);
+}
+
+.dark-mode .swal2-cancel {
+    background: var(--accent) !important;
+    color: var(--black) !important;
+}
+
+
 * {
     margin: 0;
     padding: 0;

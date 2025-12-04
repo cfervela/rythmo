@@ -156,6 +156,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "warning",
         title: "Campo requerido",
         text: "Por favor ingresa tu email",
+        confirmButtonColor: "#8B5E3C",
       });
       return;
     }
@@ -165,6 +166,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "error",
         title: "Email inválido",
         text: "Por favor ingresa un email válido",
+        confirmButtonColor: "#8B5E3C",
       });
       return;
     }
@@ -197,7 +199,12 @@ document.addEventListener("DOMContentLoaded", function () {
           showConfirmButton: false,
         }).then(() => goToStep(2));
       } else {
-        Swal.fire({ icon: "error", title: "Error", text: data.message });
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.message,
+          confirmButtonColor: "#8B5E3C",
+        });
         submitBtn.disabled = false;
       }
     } catch (err) {
@@ -206,6 +213,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "error",
         title: "Error",
         text: "No se pudo conectar al servidor",
+        confirmButtonColor: "#8B5E3C",
       });
       submitBtn.disabled = false;
     }
@@ -221,6 +229,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "warning",
         title: "Campo requerido",
         text: "Por favor ingresa el código de verificación",
+        confirmButtonColor: "#8B5E3C",
       });
       codeInput.value = "";
       return;
@@ -230,6 +239,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "error",
         title: "Código inválido",
         text: "El código debe tener 6 dígitos",
+        confirmButtonColor: "#8B5E3C",
       });
       codeInput.value = "";
       return;
@@ -253,7 +263,12 @@ document.addEventListener("DOMContentLoaded", function () {
           showConfirmButton: false,
         }).then(() => goToStep(3));
       } else {
-        Swal.fire({ icon: "error", title: "Error", text: data.message });
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.message,
+          confirmButtonColor: "#8B5E3C",
+        });
         codeInput.value = "";
       }
     } catch (err) {
@@ -261,6 +276,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "error",
         title: "Error",
         text: "No se pudo conectar al servidor",
+        confirmButtonColor: "#8B5E3C",
       });
       codeInput.value = "";
     }
@@ -279,6 +295,7 @@ document.addEventListener("DOMContentLoaded", function () {
           icon: "warning",
           title: "Campo requerido",
           text: "Por favor ingresa tu email",
+          confirmButtonColor: "#8B5E3C",
         });
         return;
       }
@@ -288,6 +305,7 @@ document.addEventListener("DOMContentLoaded", function () {
           icon: "error",
           title: "Email inválido",
           text: "Por favor ingresa un email válido",
+          confirmButtonColor: "#8B5E3C",
         });
         return;
       }
@@ -323,6 +341,7 @@ document.addEventListener("DOMContentLoaded", function () {
               icon: "error",
               title: "Error",
               text: data.message || "No se pudo reenviar el código",
+              confirmButtonColor: "#8B5E3C",
             });
             btn.disabled = false;
           }
@@ -333,6 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
             icon: "error",
             title: "Error",
             text: "No se pudo conectar al servidor",
+            confirmButtonColor: "#8B5E3C",
           });
           btn.disabled = false;
         });
@@ -351,6 +371,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "warning",
         title: "Campos requeridos",
         text: "Por favor completa ambos campos de contraseña",
+        confirmButtonColor: "#8B5E3C",
       });
       return;
     }
@@ -359,6 +380,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "error",
         title: "Contraseñas no coinciden",
         text: "Las contraseñas ingresadas no coinciden",
+        confirmButtonColor: "#8B5E3C",
       });
       return;
     }
@@ -367,6 +389,7 @@ document.addEventListener("DOMContentLoaded", function () {
         icon: "error",
         title: "Contraseña muy corta",
         text: "La contraseña debe tener al menos 8 caracteres",
+        confirmButtonColor: "#8B5E3C",
       });
       return;
     }
@@ -383,15 +406,22 @@ document.addEventListener("DOMContentLoaded", function () {
           title: "¡Contraseña cambiada!",
           text: "Tu contraseña ha sido actualizada correctamente",
           confirmButtonText: "Iniciar sesión",
+          confirmButtonColor: "#8B5E3C",
         }).then(() => (window.location.href = "/PAGES/login.html"));
       } else {
-        Swal.fire({ icon: "error", title: "Error", text: data.message });
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: data.message,
+          confirmButtonColor: "#8B5E3C",
+        });
       }
     } catch (err) {
       Swal.fire({
         icon: "error",
         title: "Error",
         text: "No se pudo conectar al servidor",
+        confirmButtonColor: "#8B5E3C",
       });
     }
   });

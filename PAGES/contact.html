@@ -4,8 +4,8 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Rythmo | Contacto</title>
-    <link rel="icon" type="image/png" href="../IMAGES/TiredCat_No-bg.png">
-    <link rel="stylesheet" href="../CSS/contactStyles.css"/>
+    <link rel="icon" type="image/png" href="/IMAGES/logo_darkmode.png">
+    <link rel="stylesheet" href="/CSS/contactStyles.css"/>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/d90850e71e.js" crossorigin="anonymous"></script>
@@ -22,14 +22,14 @@
         <div class="top-right">
             <div class="header-icons">
                 <!-- WISHLIST -->
-                <a href="#" class="header-icon wishlist" title="Lista de deseos">
+                <a href="/PAGES/wishlist.html" class="header-icon wishlist" id="wishlist-icon" title="Lista de deseos" style="display:none">
                     <i class="fa-regular fa-heart"></i>
                 </a>
 
                 <!-- CARRITO CON BADGE -->
-                <a href="#" class="header-icon cart" title="Carrito de compras">
+                <a href="/PAGES/cart.html" class="header-icon cart" id="cart-icon" title="Carrito de compras" style="display:none">
                     <i class="fa-solid fa-cart-shopping"></i>
-                    <span class="cart-count">0</span>
+                    <span class="cart-count" id="cart-badge" style="display: none;">0</span>
                 </a>
                 <!-- USUARIO LOGUEADO O LOGIN -->
                 <span id="user-name" class="welcome-user" style="display:none"></span>
@@ -53,10 +53,14 @@
                     document.getElementById("user-name").style.display = "inline-block";
                     document.getElementById("logout-btn").style.display = "inline-block";
                     document.getElementById("login-btn-link").style.display = "none";
+                    document.getElementById("wishlist-icon").style.display = "inline-block";
+                    document.getElementById("cart-icon").style.display = "inline-block";
                 } else {
                     document.getElementById("user-name").style.display = "none";
                     document.getElementById("logout-btn").style.display = "none";
                     document.getElementById("login-btn-link").style.display = "inline-block";
+                    document.getElementById("wishlist-icon").style.display = "none";
+                    document.getElementById("cart-icon").style.display = "none";
                 }
                 // Logout
                 document.getElementById("logout-btn").addEventListener("click", function() {
@@ -89,7 +93,7 @@
                 });
             </script>
             <div class="logo">
-                <img src="/IMAGES/TiredCat_No-bg.png" alt="Logo Rythmo" />
+                <img src="/IMAGES/logo.png" alt="Logo Rythmo" />
                 <div class="logo-text">
                     <h1>Rythmo</h1>
                     <span class="slogan">WE BELIEVE IN MUSIC.</span>
@@ -99,11 +103,27 @@
             <!-- NAV BAR -->
             <nav class="navbar">
                 <a class="nav-link" href="/PAGES/index.html">Inicio</a>
-                <a class="nav-link" href="#">Catálogo</a>
-                <a class="nav-link" href="#">Nosotros</a>
+                <a class="nav-link" href="/PAGES/catalogo.html">Catálogo</a>
+                <a class="nav-link" href="/PAGES/nosotros.html">Nosotros</a>
                 <a class="nav-link active" href="/PAGES/contact.html">Contacto</a>
-                <a class="nav-link" href="#">FAQ</a>
-                <a href="#" class="nav-link search" title="Buscar"><i class="fa-solid fa-magnifying-glass"></i></a>
+                <a class="nav-link" href="/PAGES/faq.html">FAQ</a>
+                <!-- ICONO ACCESIBILIDAD -->
+                <div id="accessibility-icon" class="nav-link search" title="Buscar"><i class="fa-solid fa-paintbrush"></i></div>
+                <!-- PANEL ACCESIBILIDAD -->
+                <div id="accessibility-panel" class="hidden">
+                    <p><strong>Accesibilidad</strong></p>
+                
+                    <button id="increase-text">A+</button>
+                    <button id="decrease-text">A-</button>
+                    <br><br>
+                
+                    <button id="light-mode-btn" title="Modo claro"><i class="fa-solid fa-sun"></i></button>
+
+                    <button id="dark-mode-btn" title="Modo oscuro"><i class="fa-solid fa-moon"></i></button>
+                    <br><br>
+                
+                    <button id="reset-accessibility">Restablecer</button>
+                </div>
             </nav>
         </div>
     </header>
@@ -185,28 +205,28 @@
                         <p>Tu tienda de música de confianza desde 1975.</p>
                     </div>
                     <div class="social-icons">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.facebook.com/" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/codepath_certs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://x.com/" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.youtube.com/" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
                 <div class="footer-section">
                     <h4>Enlaces rápidos</h4>
                     <ul>
-                        <li><a href="#">Inicio</a></li>
-                        <li><a href="#">Catálogo</a></li>
-                        <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Contacto</a></li>
+                        <li><a href="/PAGES/index.html">Inicio</a></li>
+                        <li><a href="/PAGES/catalogo.html">Catálogo</a></li>
+                        <li><a href="/PAGES/nosotros.html">Nosotros</a></li>
+                        <li><a href="/PAGES/contact.html">Contacto</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
                     <h4>Servicios</h4>
                     <ul>
-                        <li><a href="#">Restauración</a></li>
-                        <li><a href="#">Valuación</a></li>
-                        <li><a href="#">Envíos</a></li>
-                        <li><a href="#">Garantía</a></li>
+                        <li><a href="/PAGES/contact.html">Restauración</a></li>
+                        <li><a href="/PAGES/contact.html">Valuación</a></li>
+                        <li><a href="/PAGES/contact.html">Envíos</a></li>
+                        <li><a href="/PAGES/contact.html">Garantía</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -214,14 +234,162 @@
                     <div class="contact-info">
                         <p><i class="fas fa-map-marker-alt"></i> Calle Vintage 123, Ciudad</p>
                         <p><i class="fas fa-phone"></i> +1 234 567 890</p>
-                        <p><i class="fas fa-envelope"></i> info@rythmo.com</p>
+                        <p><i class="fas fa-envelope"></i> noreply.rythmo@gmail.com</p>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Rythmo. Todos los derechos reservados.</p>
+                 <p>&copy; 2025 Rythmo. Trabajo escolar – Uso académico no comercial.</p>
             </div>
         </div>
     </footer>
+
+    <script src="/JS/cartUtils.js"></script>
+    <script src="/JS/wishlistUtils.js"></script>
+    <script src="/JS/acces_script.js"></script>
+    <script>
+        // ===== FORMULARIO DE CONTACTO =====
+        document.getElementById('form-contacto').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const submitBtn = document.getElementById('submitContact');
+            
+            // Validaciones
+            if (!name || !email || !message) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Campos requeridos',
+                    text: 'Por favor completa nombre, email y mensaje',
+                    confirmButtonColor: '#8B5E3C'
+                });
+                return;
+            }
+            
+            // Deshabilitar botón
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/contact/send', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, email, phone, message })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '¡Mensaje enviado! 📬',
+                        text: data.message,
+                        confirmButtonColor: '#8B5E3C'
+                    });
+                    // Limpiar formulario
+                    document.getElementById('form-contacto').reset();
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: data.message || 'No se pudo enviar el mensaje',
+                        confirmButtonColor: '#8B5E3C'
+                    });
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error de conexión',
+                    text: 'No se pudo conectar con el servidor. Intenta de nuevo.',
+                    confirmButtonColor: '#8B5E3C'
+                });
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Enviar';
+            }
+        });
+
+        // ===== NEWSLETTER =====
+        document.getElementById('newsletter-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const emailInput = document.getElementById('newsletter-email');
+            const email = emailInput.value.trim();
+            const submitBtn = document.getElementById('subsNewsletter');
+            
+            if (!email) {
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Por favor ingresa tu correo electrónico',
+                    icon: 'error',
+                    confirmButtonColor: '#8B5E3C'
+                });
+                return;
+            }
+            
+            // Deshabilitar botón mientras procesa
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...';
+            
+            try {
+                const response = await fetch('http://localhost:3000/api/checkout/subscribe', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    Swal.fire({
+                        title: '¡Suscripción exitosa! 🎉',
+                        html: `
+                            <p>Gracias por unirte a nuestra comunidad musical.</p>
+                            <p style="margin-top: 15px; font-weight: 600; color: #8B5E3C;">
+                                Tu cupón de bienvenida: <br>
+                                <span style="font-size: 1.5rem; background: #8B5E3C; color: white; padding: 8px 16px; border-radius: 8px; display: inline-block; margin-top: 10px;">
+                                    ${data.couponCode}
+                                </span>
+                            </p>
+                            <p style="font-size: 0.9rem; color: #666; margin-top: 15px;">
+                                También te lo enviamos a tu correo 📧
+                            </p>
+                        `,
+                        icon: 'success',
+                        confirmButtonColor: '#8B5E3C',
+                        confirmButtonText: '¡Genial!'
+                    });
+                    emailInput.value = '';
+                } else {
+                    Swal.fire({
+                        title: 'Aviso',
+                        text: data.message || 'No se pudo completar la suscripción',
+                        icon: 'info',
+                        confirmButtonColor: '#8B5E3C'
+                    });
+                    emailInput.value = '';
+                }
+            } catch (error) {
+                console.error('Error al suscribirse:', error);
+                Swal.fire({
+                    title: 'Error',
+                    text: 'Hubo un problema al procesar tu suscripción. Intenta de nuevo.',
+                    icon: 'error',
+                    confirmButtonColor: '#8B5E3C'
+                });
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Suscribirse';
+            }
+        });
+    </script>
 </body>
 </html>

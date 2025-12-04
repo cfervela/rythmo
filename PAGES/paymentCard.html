@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rythmo | Pago</title>
-  <link rel="icon" type="image/png" href="../IMAGES/TiredCat_No-bg.png"/>
+  <link rel="icon" type="image/png" href="/IMAGES/logo_darkmode.png"/>
   <link rel="stylesheet" href="/CSS/paymentCard.css" />
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -16,10 +16,27 @@
         <div class="payment-header">
             <div class="logo-area">
                 <a href="index.html" class="logo-link">
-                    <img src="../IMAGES/TiredCat_No-bg.png" alt="Logo" />
+                    <img src="/IMAGES/logo.png" alt="Logo" />
                     <span class="brand-name">Rythmo Pay</span>
                 </a>
             </div>
+            <!-- ICONO ACCESIBILIDAD -->
+                <div id="accessibility-icon" class="nav-link search" title="Accesibilidad"><i class="fa-solid fa-paintbrush"></i></div>
+                <!-- PANEL ACCESIBILIDAD -->
+                <div id="accessibility-panel" class="hidden">
+                    <p><strong>Accesibilidad</strong></p>
+                
+                    <button id="increase-text">A+</button>
+                    <button id="decrease-text">A-</button>
+                    <br><br>
+                
+                    <button id="light-mode-btn" title="Modo claro"><i class="fa-solid fa-sun"></i></button>
+
+                    <button id="dark-mode-btn" title="Modo oscuro"><i class="fa-solid fa-moon"></i></button>
+                    <br><br>
+                
+                    <button id="reset-accessibility">Restablecer</button>
+                </div>
         </div>
 
 
@@ -58,8 +75,13 @@
                     <label for="password">Contraseña</label>
                     <input type="password" id="password" placeholder="Ingresa tu contraseña dinámica">
                 </div>
-
+                <div class="botones">
+                    <a href="/PAGES/generalPayment.html" class="btn-secondary ">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Cambiar método
+                </a>
                 <button class="pay-btn">Proceder al Pago</button>
+                </div>
             </div>
 
             <!-- TARJETA + RESUMEN -->
@@ -104,14 +126,17 @@
                     <p><strong>Product:</strong> <span id="productName">#</span></p>
                     <p><strong>Company:</strong> <span id="companyName">Rythmo</span></p>
                     <div class="total">
-                        <strong>Total:</strong> <span id="price">$0.00</span> MX
+                        <strong>Total:</strong> <span id="price">$0.00</span> <span id="currencyCode"></span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="../JS/pagos_script.js"></script>
+    <script src="/JS/currencyUtils.js"></script>
+    <script src="/JS/cartUtils.js"></script>
+    <script src="/JS/acces_script.js"></script>
+    <script src="/JS/pagos_script.js"></script>
 
 </body>
 </html>
