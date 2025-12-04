@@ -1,5 +1,5 @@
 // ===== CONFIGURACIÓN DE API =====
-const API_BASE_URL = "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com";
+const API_BASE_URL = "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api";
 
 // Estado del catálogo
 let catalogState = {
