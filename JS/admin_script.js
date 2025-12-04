@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
 function fetchTotalOrders() {
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/orders", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/orders", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -191,7 +191,7 @@ function fetchTotalOrders() {
 //    MOSTRAR CLIENTES EN DASHBOARD
 // ===============================
 function fetchClients() {
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/users")
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/users")
     .then(async (res) => {
       const allUsers = await res.json();
       // Filtrar solo clientes (excluir admins)
@@ -227,7 +227,7 @@ function renderClientsTable(clients) {
 function fetchTotalSales() {
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/sales/total", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/sales/total", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -274,7 +274,7 @@ function fetchInventoryByCategory() {
   const container = document.getElementById("inventory-report");
   if (!container) return;
 
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/inventory/category", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/inventory/category", {
     headers: { Authorization: "Bearer " + token },
   })
     .then(async (res) => {
@@ -371,7 +371,7 @@ function renderInventoryReport(data) {
 function fetchSalesByCategory() {
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/sales/category", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/sales/category", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -412,7 +412,7 @@ function fetchSalesByCategory() {
 function fetchMostSoldProducts() {
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/sales/most-sold", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/sales/most-sold", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -648,7 +648,7 @@ function uploadProductImage(imageFile) {
     console.log("Enviando imagen al servidor...");
     console.log("Archivo:", imageFile.name, "Tamaño:", imageFile.size);
 
-    fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/images/upload", {
+    fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/images/upload", {
       method: "POST",
       body: formData,
       headers: {
@@ -739,7 +739,7 @@ function updateHeader(page) {
 // ===== FUNCIONES DE DATOS =====
 function loadDashboardData() {
   // Cargar productos para actualizar contador
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products")
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products")
     .then((response) => response.json())
     .then((products) => {
       const totalProducts = document.getElementById("total-products");
@@ -752,7 +752,7 @@ function loadDashboardData() {
   // Cargar clientes para actualizar contador
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/admin/usuarios", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/admin/usuarios", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -810,7 +810,7 @@ async function loadClients() {
     '<div class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando clientes...</div>';
 
   try {
-    const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/users");
+    const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/users");
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -960,7 +960,7 @@ async function handleAddProduct(event) {
     const productNombre = productData.nombre?.trim().toLowerCase();
     let existsProduct = false;
     try {
-      const productsResp = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products");
+      const productsResp = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products");
       if (productsResp.ok) {
         const products = await productsResp.json();
         existsProduct = products.some(
@@ -1006,7 +1006,7 @@ async function handleAddProduct(event) {
     };
 
     // Enviar producto al backend
-    const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products", {
+    const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -1058,7 +1058,7 @@ async function handleSearchProduct() {
 
   try {
     const response = await fetch(
-      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/search?nombre=${encodeURIComponent(
+      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/search?nombre=${encodeURIComponent(
         searchTerm
       )}`
     );
@@ -1094,7 +1094,7 @@ function displaySearchResults(products) {
 async function loadProductForUpdate(productId) {
   try {
     const response = await fetch(
-      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/${productId}`
+      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/${productId}`
     );
 
     if (!response.ok) {
@@ -1346,7 +1346,7 @@ async function handleUpdateProduct(event, productId) {
 
     // Enviar actualización
     const response = await fetch(
-      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/${productId}`,
+      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/${productId}`,
       {
         method: "PUT",
         headers: {
@@ -1405,7 +1405,7 @@ async function loadProductsForDeletion() {
     '<div class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Cargando productos...</div>';
 
   try {
-    const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products");
+    const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products");
 
     if (!response.ok) {
       throw new Error(`Error ${response.status}: ${response.statusText}`);
@@ -1488,7 +1488,7 @@ async function toggleFeatured(productId, isFeatured) {
       localStorage.getItem("token") || sessionStorage.getItem("token");
 
     const response = await fetch(
-      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/${productId}/featured`,
+      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/${productId}/featured`,
       {
         method: "PATCH",
         headers: {
@@ -1663,7 +1663,7 @@ async function deleteProduct(productId, productName) {
 
   try {
     const response = await fetch(
-      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/products/${productId}`,
+      `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/products/${productId}`,
       {
         method: "DELETE",
         headers: {
@@ -1758,7 +1758,7 @@ function editOrder(orderId) {
         const token =
           localStorage.getItem("token") || sessionStorage.getItem("token");
         const res = await fetch(
-          `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/orders/${orderId}/status`,
+          `https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/orders/${orderId}/status`,
           {
             method: "PUT",
             headers: {
@@ -1813,7 +1813,7 @@ async function deleteOrder(orderId) {
   try {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
-    const res = await fetch(`https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/orders/${orderId}`, {
+    const res = await fetch(`https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/orders/${orderId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
     });
@@ -1947,7 +1947,7 @@ document.head.appendChild(styleSheet);
 function fetchOrders() {
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
-  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/orders", {
+  fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/orders", {
     headers: {
       Authorization: "Bearer " + token,
     },
@@ -2133,10 +2133,10 @@ async function fetchAndRenderOrders() {
     const token =
       localStorage.getItem("token") || sessionStorage.getItem("token");
     const [ordersRes, usersRes] = await Promise.all([
-      fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/orders", {
+      fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/orders", {
         headers: { Authorization: `Bearer ${token}` },
       }),
-      fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/admin/usuarios", {
+      fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/admin/usuarios", {
         headers: { Authorization: `Bearer ${token}` },
       }),
     ]);

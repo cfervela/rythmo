@@ -48,7 +48,7 @@ async function syncWishlistFromServer() {
     const API_URL =
       typeof API_BASE_URL !== "undefined"
         ? API_BASE_URL
-        : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/";
+        : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/";
     const response = await fetch(`${API_URL}/wishlist`, {
       headers: {
         "Content-Type": "application/json",
@@ -131,7 +131,7 @@ async function addProductToWishlist(product) {
       const API_URL =
         typeof API_BASE_URL !== "undefined"
           ? API_BASE_URL
-          : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/";
+          : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/";
       await fetch(`${API_URL}/wishlist/add`, {
         method: "POST",
         headers: {
@@ -164,7 +164,7 @@ async function removeProductFromWishlist(productId) {
       const API_URL =
         typeof API_BASE_URL !== "undefined"
           ? API_BASE_URL
-          : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/";
+          : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/";
       await fetch(`${API_URL}/wishlist/remove/${id}`, {
         method: "DELETE",
         headers: {

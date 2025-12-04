@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     try {
       const res = await fetch(
-        "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/auth/forgot-password",
+        "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/auth/forgot-password",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     try {
       const res = await fetch(
-        "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/auth/verify-reset-code",
+        "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/auth/verify-reset-code",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
@@ -319,7 +319,7 @@ document.addEventListener("DOMContentLoaded", function () {
           Swal.showLoading();
         },
       });
-      fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/auth/forgot-password", {
+      fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/auth/forgot-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -394,7 +394,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
     try {
-      const res = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/auth/reset-password", {
+      const res = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/auth/reset-password", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, code, newPassword: password }),

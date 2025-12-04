@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/auth/register", {
+      const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/auth/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -121,7 +121,7 @@
                         if (result.isConfirmed) {
                             try {
                                 const token = localStorage.getItem("token") || sessionStorage.getItem("token");
-                                const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/users/account", {
+                                const response = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/users/account", {
                                     method: "DELETE",
                                     headers: {
                                         "Content-Type": "application/json",
@@ -326,7 +326,7 @@
     <script src="/JS/acces_script.js"></script>
     <script>
         // ===== CONFIGURACIÓN DE API =====
-        const API_BASE_URL = "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com";
+        const API_BASE_URL = "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api";
         
         // Almacenar productos destacados cargados
         let featuredProducts = {};

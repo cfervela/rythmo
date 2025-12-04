@@ -7,7 +7,7 @@ async function loadCaptcha() {
   if (emailInput) {
     email = emailInput.value.trim();
   }
-  const res = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/captcha", {
+  const res = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/captcha", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email }),
@@ -36,7 +36,7 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
   }
 
   // Petición login+captcha
-  const res = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/auth/login", {
+  const res = await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/auth/login", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
