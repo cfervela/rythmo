@@ -139,7 +139,7 @@ document.getElementById("login-btn").addEventListener("click", async (e) => {
         title: "Login exitoso",
         text: "Sesión iniciada como: " + (data.name || email),
       }).then(() => {
-        window.location.href = "/PAGES/index.html";
+        window.location.href = "./index.html";
       });
     }
   }

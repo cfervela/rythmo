@@ -688,7 +688,7 @@ document.addEventListener("DOMContentLoaded", async function () {
           confirmButtonText: "Ver inicio",
           confirmButtonColor: "#8B5E3C",
         }).then(() => {
-          window.location.href = "/PAGES/index.html";
+          window.location.href = "./index.html";
         });
       } else {
         Swal.fire({
@@ -970,7 +970,7 @@ async function processTransferPayment() {
       confirmButtonText: "Entendido",
       confirmButtonColor: "#8B5E3C",
     }).then(() => {
-      window.location.href = "/PAGES/index.html";
+      window.location.href = "./index.html";
     });
   } else {
     Swal.fire({

@@ -364,7 +364,7 @@ async function processPayment() {
       });
 
       // Redirigir a página de pedidos o inicio
-      window.location.href = "/PAGES/index.html";
+      window.location.href = "./index.html";
     } else {
       throw new Error(data.message || "Error al procesar el pedido");
     }

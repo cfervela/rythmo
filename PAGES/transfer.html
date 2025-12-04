@@ -299,7 +299,7 @@
                 }).then(() => {
                     // Limpiar datos de checkout
                     localStorage.removeItem('checkoutData');
-                    window.location.href = '/PAGES/index.html';
+                    window.location.href = './index.html';
                 });
             } else {
                 throw new Error(result.error || 'Error al procesar el pedido');

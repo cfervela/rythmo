@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Guardar el usuario actual
           localStorage.setItem("currentUser", name);
           registerForm.reset();
-          window.location.href = "/PAGES/index.html";
+          window.location.href = "./index.html";
         });
       } else {
         Swal.fire({
