@@ -82,8 +82,8 @@
 .dark-mode .add-to-wishlist,
 .dark-mode .product-card,
 .dark-mode .navbar a {
-    box-shadow: 0 0 8px rgba(255, 0, 255, 0.4),
-                0 0 12px rgba(0, 200, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.9),
+                0 0 12px rgba(0, 200, 255, 0.8);
     transition: 0.3s ease;
 }
 
@@ -174,7 +174,6 @@
 }
 
 html {
-    font-size: 100%;
     scroll-behavior: smooth;
 }
 
@@ -332,6 +331,10 @@ body {
 }
 
 .nav-link.active {
+    color: var(--primary);
+}
+
+.dark-mode .nav-link.active {
     color: var(--primary);
 }
 
@@ -652,13 +655,11 @@ body {
 
 /* ======== MODO OSCURO PARA HEADER Y FOOTER ======== */
 .dark-mode .top-bar {
-    background: var(--card-bg);
     color: var(--text-dark);
     border-bottom: 1px solid rgba(255, 0, 255, 0.1);
 }
 
 .dark-mode .main-header {
-    background: var(--card-bg);
     border-bottom: 1px solid rgba(255, 0, 255, 0.1);
 }
 
@@ -667,7 +668,7 @@ body {
 }
 
 .dark-mode .nav-link:hover {
-    color: var(--primary);
+    color: var(--vibrant-2);
 }
 
 .dark-mode .header-icon {

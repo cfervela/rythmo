@@ -82,8 +82,8 @@
 .dark-mode .add-to-wishlist,
 .dark-mode .product-card,
 .dark-mode .navbar a {
-    box-shadow: 0 0 8px rgba(255, 0, 255, 0.4),
-                0 0 12px rgba(0, 200, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.9),
+                0 0 12px rgba(0, 200, 255, 0.8);
     transition: 0.3s ease;
 }
 
@@ -640,13 +640,23 @@ body {
     background: linear-gradient(135deg, 
         rgba(244, 237, 227, 0.9) 0%, 
         rgba(236, 220, 199, 0.9) 100%);
-    border-radius: var(--border-radius);
+    
     border: 1px solid rgba(139, 94, 60, 0.2);
     box-shadow: 
         0 10px 30px rgba(75, 45, 20, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.8);
     position: relative;
     overflow: hidden;
+    border-radius: 12px;
+}
+
+.dark-mode .faqs-container{
+    background: linear-gradient(135deg, 
+        rgba(1, 16, 44, 0.9) 0%, 
+        rgba(27, 44, 95, 0.9) 100%);
+    box-shadow: 
+        0 10px 30px rgba(75, 45, 20, 0.1),
+        inset 0 1px 0 rgba(243, 16, 220, 0.8);
 }
 
 /* Encabezado FAQ */
@@ -661,7 +671,14 @@ body {
     box-shadow: var(--shadow);
 }
 
+.dark-mode .faqs-header{
+    background: linear-gradient(135deg, 
+        rgba(1, 16, 44, 0.9) 0%, 
+        rgba(27, 44, 95, 0.9) 100%);
+}
+
 .faqs-header .retro-title {
+    
     margin-bottom: 20px;
     position: relative;
     z-index: 2;
@@ -678,6 +695,10 @@ body {
     border-radius: 15px;
     border-left: 4px solid var(--primary);
     font-style: italic;
+}
+
+.dark-mode .retro-description{
+    background: rgba(237, 54, 173, 0.216) ;
 }
 
 /* Lista de FAQs */
@@ -850,7 +871,7 @@ body {
     right: 15px;
     bottom: 15px;
     background: 
-        linear-gradient(rgba(244, 237, 227, 0.1), rgba(236, 220, 199, 0.01)),
+        linear-gradient(rgba(192, 122, 25, 0.1), rgba(236, 220, 199, 0.01)),
         url("/IMAGES/faqs_fondo.jpg");
     background-size: cover;
     background-position: center;
@@ -987,7 +1008,11 @@ body {
     border-right: 4px solid var(--accent);
 }
 .dark-mode .cta-content p {
-    color: var(--white);
+    color: var(--text-dark); 
+    background: rgba(149, 77, 151, 0.601); 
+    border: 1px solid rgba(29, 200, 255, 0.3); 
+    border-left: 4px solid var(--primary); 
+    border-right: 4px solid var(--accent); 
 }
 
 .cta-content p::before {

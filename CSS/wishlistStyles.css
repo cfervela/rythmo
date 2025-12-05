@@ -82,8 +82,8 @@
 .dark-mode .add-to-wishlist,
 .dark-mode .product-card,
 .dark-mode .navbar a {
-    box-shadow: 0 0 8px rgba(255, 0, 255, 0.4),
-                0 0 12px rgba(0, 200, 255, 0.3);
+    text-shadow: 0 0 8px rgba(255, 0, 255, 0.9),
+                0 0 12px rgba(0, 200, 255, 0.8);
     transition: 0.3s ease;
 }
 
