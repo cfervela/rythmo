@@ -746,6 +746,7 @@ async function startOxxoTimer() {
   } else {
     // Crear nuevo timer
     expireTime = Date.now() + TOTAL_TIME;
+    clearCartAfterPurchase();
     localStorage.setItem(storageKey, expireTime);
   }
 
