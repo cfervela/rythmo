@@ -4,7 +4,7 @@
 const CURRENCY_API_URL =
   typeof API_BASE_URL !== "undefined"
     ? API_BASE_URL
-    : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/";
+    : "https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api";
 
 // Tasas de conversión desde MXN (sincronizadas con el backend)
 const exchangeRates = {
