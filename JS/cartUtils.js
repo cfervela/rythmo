@@ -32,7 +32,7 @@ function saveCartToStorage(items) {
 }
 
 // Agregar producto al carrito
-function addProductToCart(product) {
+async function addProductToCart(product) {
   const cart = getCartFromStorage();
 
   // Verificar si el producto ya existe
@@ -64,6 +64,21 @@ function addProductToCart(product) {
 
   saveCartToStorage(cart);
   updateCartBadgeGlobal();
+
+  const token = localStorage.getItem("token")|| sessionStorage.getItem("token");
+  if (token){
+    try{
+      await fetch("https://web-5lecz6bm76nn.up-de-fra1-k8s-1.apps.run-on-seenode.com/api/cart/add", {
+        method: postMessage,
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}` 
+        },
+        body: JSON.stringify({productId: product.id, quantity: i})
+      });
+    }catch (e) {console.error("Error sync:", e)}
+  }
+
   return { cart, added: true };
 }
 
